@@ -1,0 +1,33 @@
+<ion-header>
+<ion-navbar secondary>
+  <ion-title style="text-align:center">Registration</ion-title>
+</ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Full Name</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CWID</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="CWID"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" value="" ng-model="abc@leomail.tamuc.edu"[(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" value="" [(ngModel)]="password"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label>Are you professor?</ion-label>
+      <ion-checkbox [(ngModel)]="isProfessor"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button secondary style="margin-left:75%"(click)="registerUser()">SignUp</button>
+    <p align="center"><font color="red"><b><i>{{successmsg}}</i></b></font></p>
+  </div>
+</ion-content>

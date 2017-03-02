@@ -1,0 +1,25 @@
+<ion-header>
+<ion-navbar secondary>
+  <ion-title style="text-align:center" id="l">TAMUC ATTENDANCE</ion-title>
+</ion-navbar>
+</ion-header>
+<ion-content>
+	<img class="login"src="img/limg.jpg"/>
+	<p id="beImg"> Login to access your account.</p>
+	 <ion-list>
+      <ion-item class="item">
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" value="" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" value=""  [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button id="lg"secondary (click)="validateUser()">Login</button>
+	  <button id="lg"secondary (click)="signIn()">Register</button>
+	  <p id="insB"> Not yet Registered? Register Now!!</p>
+      <p align="center">{{errormsg}}</p>
+    </div>
+</ion-content>

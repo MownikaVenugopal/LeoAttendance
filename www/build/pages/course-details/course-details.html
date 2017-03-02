@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title> {{course.name}} </ion-title>
+    <ion-buttons end>
+      <button *ngIf="isProfessor" (click)="editClass()">EDIT</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="course-details">
+  <div class="card-background-page">
+    <ion-card>
+      <ion-card-header>
+        {{course.name}}
+      </ion-card-header>
+      <ion-card-content>
+        <h2 class="card-content">{{course.title}}</h2>
+        <p class="card-content"> {{course.location}} </p>
+        <p class="card-content"> professor : {{professor.name}} </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <base-chart class="chart" [data]="chartData" [labels]="chartLabels" [chartType]="chartType" (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </base-chart>
+  <ion-list>
+    <ion-item-divider class="item-background">
+      <ion-label class="item-heading">Timings</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let timing of course.timings">
+      <ion-item>
+        <ion-label>
+          <h2>{{timing.day}}</h2>
+          <p>{{timing.startTime}} - {{timing.endTime}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list>
+    <ion-item-divider class="item-background">
+      <ion-label class="item-heading">Students</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let student of enrolledStudents">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="img/avatar-finn.png">
+        </ion-avatar>
+        <h2>{{student.name}}</h2>
+        <p>{{student.CWID}}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list *ngIf="isProfessor">
+    <ion-item-divider class="item-background">
+      <ion-label class="item-heading">Actions</ion-label>
+    </ion-item-divider>
+    <button  ion-item (click)="showTodayAttendance()">Attendance</button>
+    <button ion-item (click)="showPreviousAttendance()">Previous Attendance</button>
+  </ion-list>
+</ion-content>

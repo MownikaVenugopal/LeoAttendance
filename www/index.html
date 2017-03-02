@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TAMUC Attendance</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+  <link ios-href="build/css/app.ios.css" rel="stylesheet">
+  <link md-href="build/css/app.md.css" rel="stylesheet">
+  <link wp-href="build/css/app.wp.css" rel="stylesheet">  
+  <script type="javascript">
+    System.config({
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    },
+    map: {
+      lodash: 'node_modules/lodash/lodash.js'
+    }
+  });
+  </script>
+</head>
+<body>
+
+  <ion-app></ion-app>
+  <script src="http://maps.google.com/maps/api/js"></script>
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
+  <!-- Polyfill needed for platforms without Promise and Collection support -->
+  <script src="build/js/es6-shim.min.js"></script>
+  <!-- Zone.js and Reflect-metadata  -->
+  <script src="build/js/Reflect.js"></script>
+  <script src="build/js/zone.js"></script>
+  <!-- the bundle which is built from the app's source code -->
+  <script src="build/js/app.bundle.js"></script>
+</body>
+</html>

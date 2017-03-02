@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar primary no-border-bottom>
+    <ion-title>Attendance on {{date}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar [attr.primary]="isAndroid ? '' : null" no-border-top>
+    <ion-segment [(ngModel)]="students" [attr.light]="isAndroid ? '' : null">
+      <ion-segment-button value="present">Present</ion-segment-button>
+      <ion-segment-button value="absent">Absent</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content class = "attendance-tabs">
+  <div [ngSwitch]="students">
+    <div *ngSwitchCase="'absent'">
+      <div class="card-background-page" *ngIf="!absentStudents || absentStudents.length <= 0">
+        <ion-card>
+          <div class="card-title">Sorry!</div>
+          <div class="card-subtitle">No one is present today!</div>
+        </ion-card>
+      </div>
+      <ion-list>
+        <ion-item-sliding *ngFor="let student of absentStudents">
+          <ion-item>
+            <ion-avatar item-left>
+              <img src="img/avatar-finn.png">
+            </ion-avatar>
+            <h2>{{student.name}}</h2>
+            <h3>{{student.CWID}}</h3>
+          </ion-item>
+          <ion-item-options side="right" icon-left>
+            <button (click)="markAsPresent(student)">
+              <ion-icon name="checkmark"></ion-icon>
+                Mark As Present
+          </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'present'">
+      <div class="card-background-page" *ngIf="!presentedStudents || presentedStudents.length <= 0">
+        <ion-card>
+          <ion-card-header>
+            Sorry!
+          </ion-card-header>
+          <ion-card-content>
+            No student is absent today!
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-list>
+        <ion-item-sliding *ngFor="let student of presentedStudents">
+          <ion-item>
+            <ion-avatar item-left>
+              <img src="img/avatar-finn.png">
+            </ion-avatar>
+            <h2>{{student.name}}</h2>
+            <h3>{{student.CWID}}</h3>
+          </ion-item>
+          <ion-item-options side="right" icon-left>
+            <button danger (click)="markAsAbsent(student)">
+              <ion-icon name="checkmark"></ion-icon>
+                Mark As Absent
+          </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

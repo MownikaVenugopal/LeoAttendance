@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngIf="userObject.isProfessor">
+     <h2 align="center"><font color = "crimson" size="18"><b><i>PROFESSOR </i></b></font></h2>
+    </ion-item>
+     <ion-item *ngIf="!userObject.isProfessor">
+     <h2 align="center"><font color = "crimson" size="18"><b><i> STUDENT </i></b></font></h2>
+    </ion-item>
+    <ion-item>
+      <h2>{{userObject.name}}</h2>
+    </ion-item>
+    <ion-item>
+      <h2>{{userObject.CWID}}</h2>
+    </ion-item>
+    <ion-item>
+      <h2>{{userObject.email}}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

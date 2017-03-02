@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TAMUC Attendance</ion-title>
+    <ion-buttons end>
+      <button (click)="addCourse()">
+      <ion-icon name='create'></ion-icon>
+      Add 
+    </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="page1">
+  <ion-list>
+    <ion-item-sliding *ngFor="let course of courses">
+      <ion-item (click)="viewCourse(course)">
+        <ion-avatar item-left>
+          <img src="img/avatar-finn.png">
+        </ion-avatar>
+        <h2>{{course.name}}</h2>
+        <p>{{course.title}}</p>
+      </ion-item>
+      <ion-item-options side="right" icon-left>
+        <button (click)="editCourse(course)">
+           <ion-icon name="create"></ion-icon>
+            Edit
+      </button>
+        <button danger (click)="deleteCourse(course)">
+         <ion-icon name="trash"></ion-icon>
+          Delete
+      </button>
+        <button secondary (click)="startAttendance(course)">
+           <ion-icon name="thumbs-up"></ion-icon>
+            Attendance
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <p align="center"><font color="red"><i><b>{{successmsg}}</b></i></font></p>
+</ion-content>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAhUJCXzcyaMRC_HnRyog3BuT9eYKb497s"></script>

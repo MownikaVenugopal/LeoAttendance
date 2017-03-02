@@ -1,0 +1,21 @@
+.attendance-tabs {
+    .card-background-page {
+        ion-card {
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            background-color:#ccffcc;
+        }
+        ion-card-header {
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #333333;
+        }
+        ion-card-content {
+            font-size: 1.0em;
+            width: 100%;
+            color: #333333;
+        }
+    }
+}

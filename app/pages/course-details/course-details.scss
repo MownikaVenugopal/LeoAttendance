@@ -1,0 +1,33 @@
+.course-details {
+    .chart {
+        display: block; 
+        width: 100%;
+    }    
+    .card-background-page {
+         ion-card {
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            background-color: #ccffcc;
+        }
+        ion-card-header {
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color:#333333;
+        }
+        .card-content {
+            font-size: 1.0em;
+            width: 100%;
+            color: #333333;
+        }
+    }
+        .item-background {
+            background-color: #ffc2cd;
+        }   
+        .item-heading {
+             margin : 0;
+            font-weight: bold
+        }
+    
+}

@@ -1,0 +1,15 @@
+<ion-header>
+<ion-navbar primary>
+  <ion-title>Previous Attendance Dates</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding class="previous-attendance-dates">
+  <ion-list>
+    <ion-item-sliding *ngFor="let date of courseDates">
+      <ion-item (click) = "showAttendance(date)">
+          {{date}}
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Add Course</ion-title>
+    <ion-buttons end>
+      <button (click)="updateClass()">
+      <ion-icon name='download'></ion-icon>
+      save
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="add-course">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Course Code</ion-label>
+      <ion-input type="text" [(ngModel)]="course.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="course.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Location</ion-label>
+      <ion-select [(ngModel)]="course.location">
+        <ion-option *ngFor="let location  of locations;" [value]="location" [checked]="false">{{location}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Semester</ion-label>
+      <ion-select [(ngModel)]="course.semester">
+        <ion-option *ngFor="let semester  of semesters;" [value]="semester" [checked]="false">{{semester}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-list>
+      <ion-item-sliding *ngFor="let timing of course.timings">
+        <ion-item>
+          {{timing.day}} {{timing.startTime}} {{timing.endTime}}
+        </ion-item>
+        <ion-item-options side="right">
+          <button danger (click)="deleteTiming(timing)">
+         <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+     <ion-item>
+      <ion-label floating>Day</ion-label>
+      <ion-select [(ngModel)]="day">
+        <ion-option *ngFor="let day  of days;" [value]="day" [checked]="false">{{day}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Start Time</ion-label>
+      <ion-datetime displayFormat="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]="startTime"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>End Time</ion-label>
+      <ion-datetime displayFormat="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]="endTime"></ion-datetime>
+    </ion-item>
+  </ion-list>
+    <!--<button (click)="addTiming()">  
+      add timing
+    </button>-->
+</ion-content>
